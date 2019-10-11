@@ -1,0 +1,60 @@
+<p>appointment works!</p>
+
+ <mat-card *ngIf="patientID;" class="center">
+        <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                    (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title>
+                           <strong><b>
+                                {{ patientID }}
+                                {{ patientArray.patientName }}
+                           </b></strong>
+                        </mat-panel-title>
+                        <mat-panel-description>
+                           Leave your Appointment here-->{{panelOpenState ? 'Yes' : 'No'}}
+                        </mat-panel-description>
+                    </mat-expansion-panel-header>
+    
+        <mat-form-field>
+            <input matInput placeholder="Date" [(ngModel)]="APDate" type="date" />
+        </mat-form-field><br>
+    
+        <mat-form-field>
+            <textarea matInput [(ngModel)]="APReason" placeholder="Reason" type="textarea" >Type your Reason</textarea>
+        </mat-form-field><br>
+    
+        <mat-form-field>
+            <select matNativeControl [(ngModel)]="APDocter" placeholder="Docter">
+                <option value="Dr Legodi">Dr Legodi</option>
+                <option value="Dr Dlamini">Dr Dlamini</option>
+                <option value="Dr Sue">Dr Sue</option>
+                </select>
+        </mat-form-field><br>
+    
+        <button mat-raised-button (click)="appointmentdate(APDate, APReason,APDocter)" color="primary" >Save</button>
+    
+ </mat-expansion-panel>
+ </mat-accordion></mat-card>   
+    
+    
+ 
+    
+    <mat-card class="center">
+        <button mat-fab color="primary" [routerLink]="'/patient'" >Back</button>
+    </mat-card>
+
+    <mat-card *ngFor="let sick of appointments" >
+     
+            
+        <p >
+            {{ sick.apDate }}
+            {{ sick.apReason }}
+            {{ sick.apDocter }}
+                <button mat-fab (click)="editappointment(sick)" color="warn" ><mat-icon>edit</mat-icon></button>
+                <button mat-fab (click)="removeappointment(sick)" color="warn" ><mat-icon>delete</mat-icon></button>
+           </p> 
+        
+    
+
+</mat-card>

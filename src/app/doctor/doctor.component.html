@@ -1,0 +1,43 @@
+<p>doctor works!</p>
+<mat-card *ngIf="DoctorID;" class="center">
+  <mat-form-field>
+        <input matInput placeholder="DoctorsId" [(ngModel)]="APDoctorsId" type="date" />
+    </mat-form-field><br>
+
+   
+
+    <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="APNamee" type="text" />
+    <mat-form-field>
+            <mat-form-field>
+                    <input matInput placeholder="Surname" [(ngModel)]="APSurname" type="text" />
+                <mat-form-field>
+        <textarea matInput [(ngModel)]="APSpecialisation" placeholder="Specialisation" type="textarea" >
+        Specialisation</textarea>
+    </mat-form-field><br>
+
+    <button mat-raised-button (click)="DoctorsAppointment(APNamee, APSurname,APSpecialisation)" color="primary" >Save</button>
+
+
+
+
+
+
+<mat-card class="center">
+    <button mat-fab color="primary" [routerLink]="'/patient'" >Back</button>
+</mat-card>
+
+<mat-card *ngFor="let doctors of appointments" >
+ 
+        
+    <p >
+        {{ doctors.APName }}
+        {{ doctors.APSurname}}
+        {{ doctors.APSpecialisation }}
+            <button mat-fab (click)="editappointment(sick)" color="warn" ><mat-icon>edit</mat-icon></button>
+            <button mat-fab (click)="removeappointment(sick)" color="warn" ><mat-icon>delete</mat-icon></button>
+       </p> 
+    
+
+
+</mat-card>

@@ -1,0 +1,23 @@
+<p>patient works!</p>
+<mat-card *ngFor = "let sickpatient of patientArray" class="center">
+    <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{ sickpatient.patientId }}</mat-card-title>
+        <mat-card-subtitle><strong><b>{{ sickpatient.patientName }} {{ sickpatient.patientSurname }}</b></strong></mat-card-subtitle>
+    </mat-card-header>
+       
+    <mat-card-content>
+        <h2><strong><b>
+        Age : {{ sickpatient.patientAge }}<br>
+        Contact Numbers : {{sickpatient.patientPhoneNumber }}<br>
+        Gender : {{sickpatient.patientGender}}
+        </b></strong></h2>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-fab color="warn" (click)="edittask(sickpatient)"><mat-icon>edit</mat-icon></button>
+        <button mat-fab color="warn" (click)="remove(sickpatient)"><mat-icon>delete</mat-icon></button><br>
+        <button [routerLink]="['/appointment', sickpatient.patientId]">Patient Appointment</button><br>
+        <button mat-fab color="primary" [routerLink]="['/admin']">Back</button>
+    </mat-card-actions>
+</mat-card>
+<router-outlet></router-outlet>

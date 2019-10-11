@@ -1,0 +1,19 @@
+<p>patient-details works!</p>
+
+
+<mat-card *ngIf="patientID;" class="center">
+    <mat-card-header>
+       
+          <mat-card-title>{{ patientID }}</mat-card-title>
+          <mat-card-subtitle><strong><b>{{ patientArray.patientName }} {{ patientArray.patientSurname }}</b></strong></mat-card-subtitle>
+  <h2><strong><b>
+            Age : {{ patientArray.patientAge }}<br>
+            Contact Numbers : {{ patientArray.patientPhoneNumber }}<br>
+            Gender : {{ patientArray.patientGender }}
+        </b></strong></h2>
+   
+    
+
+<mat-card class="center">
+    <button mat-fab color="primary" [routerLink]="['/admin']">Back</button>
+</mat-card>
